@@ -93,22 +93,21 @@ function sapXepTang() {
 }
 
 // tìm số nguyên tố đầu tiên
-
+////kiểm tra số nguyên tố
 function tinhSoNguyenTo(list) {
   var n = list;
   var content = false;
   if (n < 2) {
     //kiểm tra số
-    alert("Nhập số khác");
   } else {
     for (var i = 2; i <= n; i++) {
       if (i === 2) {
         content = true;
       } else if (i === 3) {
-        content += i + " ";
+        content = true;
         continue;
       } else if (i === 5) {
-        content += i + " ";
+        content = true;
         continue;
       } else if (i % 2 === 0) {
         continue;
@@ -117,15 +116,24 @@ function tinhSoNguyenTo(list) {
       } else if (i % 5 === 0) {
         continue;
       } else {
-        content += i + " ";
+        content = true;
         continue;
       }
     }
 
     return content;
-
-    console.log(content);
   }
-  var result = "<p>Các số Nguyên tố là : " + content + "</p>";
-  document.getElementById("infonb1").innerHTML = result;
+}
+
+/// tìm số nguyên tố đầu tiên
+function nguyenToDauTien() {
+  var content = "";
+  for (var i = 0; i < listNumber.length; i++) {
+    if (tinhSoNguyenTo(listNumber[i]) == true) {
+      content += listNumber[i];
+      break;
+    }
+  }
+  var result = "<p>Số nguyên tố đầu tiên là : " + content + "</p>";
+  document.getElementById("infob7").innerHTML = result;
 }
